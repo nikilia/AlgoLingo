@@ -25,21 +25,21 @@ const db = new sqlite3.Database(dbFile);
 db.serialize(() => {
   if (!exists) {
     db.run(
-      "CREATE TABLE Dreams (id INTEGER PRIMARY KEY AUTOINCREMENT, dream TEXT)"
+      "CREATE TABLE AlgoLingo (id INTEGER PRIMARY KEY AUTOINCREMENT, AlgoLingo TEXT)"
     );
-    console.log("New table Dreams created!");
+    console.log("New table AlgoLingo created!");
 
-    // insert default dreams
+    // insert default AlgoLingo
     db.serialize(() => {
       db.run(
-        'INSERT INTO Dreams (dream) VALUES ("Find and count some sheep"), ("Climb a really tall mountain"), ("Wash the dishes")'
+        'INSERT INTO AlgoLingo (AlgoLingo) VALUES ("Find and count some sheep"), ("Climb a really tall mountain"), ("Wash the dishes")'
       );
     });
   } else {
-    console.log('Database "Dreams" ready to go!');
-    db.each("SELECT * from Dreams", (err, row) => {
+    console.log('Database "AlgoLingo" ready to go!');
+    db.each("SELECT * from AlgoLingo", (err, row) => {
       if (row) {
-        console.log(`record: ${row.dream}`);
+        console.log(`record: ${row.AlgoLingo}`);
       }
     });
   }
@@ -50,22 +50,22 @@ app.get("/", (request, response) => {
   response.sendFile(`${__dirname}/views/index.html`);
 });
 
-// endpoint to get all the dreams in the database
-app.get("/getDreams", (request, response) => {
-  db.all("SELECT * from Dreams", (err, rows) => {
+// endpoint to get all the AlgoLingo in the database
+app.get("/getAlgoLingo", (request, response) => {
+  db.all("SELECT * from AlgoLingo", (err, rows) => {
     response.send(JSON.stringify(rows));
   });
 });
 
-// endpoint to add a dream to the database
-app.post("/addDream", (request, response) => {
-  console.log(`add to dreams ${request.body.dream}`);
+// endpoint to add a AlgoLingo to the database
+app.post("/addAlgoLingo", (request, response) => {
+  console.log(`add to AlgoLingo ${request.body.AlgoLingo}`);
 
   // DISALLOW_WRITE is an ENV variable that gets reset for new projects
   // so they can write to the database
   if (!process.env.DISALLOW_WRITE) {
-    const cleansedDream = cleanseString(request.body.dream);
-    db.run(`INSERT INTO Dreams (dream) VALUES (?)`, cleansedDream, (error) => {
+    const cleansedAlgoLingo = cleanseString(request.body.AlgoLingo);
+    db.run(`INSERT INTO AlgoLingo (AlgoLingo) VALUES (?)`, cleansedAlgoLingo, (error) => {
       if (error) {
         response.send({ message: "error!" });
       } else {
@@ -75,15 +75,15 @@ app.post("/addDream", (request, response) => {
   }
 });
 
-// endpoint to clear dreams from the database
-app.get("/clearDreams", (request, response) => {
+// endpoint to clear AlgoLingo from the database
+app.get("/clearAlgoLingo", (request, response) => {
   // DISALLOW_WRITE is an ENV variable that gets reset for new projects so you can write to the database
   if (!process.env.DISALLOW_WRITE) {
     db.each(
-      "SELECT * from Dreams",
+      "SELECT * from AlgoLingo",
       (err, row) => {
         console.log("row", row);
-        db.run(`DELETE FROM Dreams WHERE ID=?`, row.id, (error) => {
+        db.run(`DELETE FROM AlgoLingo WHERE ID=?`, row.id, (error) => {
           if (row) {
             console.log(`deleted row ${row.id}`);
           }

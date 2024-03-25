@@ -3,46 +3,46 @@
 
 console.log("hello world :o");
 
-// function to fetch and display dreams
-const displayDreams = () => {
-  const dreamsList = document.getElementById("dreams");
+// function to fetch and display AlgoLingo
+const displayAlgoLingo = () => {
+  const AlgoLingoList = document.getElementById("AlgoLingo");
 
-  // request the dreams from the server
-  fetch("/getDreams")
+  // request the AlgoLingo from the server
+  fetch("/getAlgoLingo")
     .then(res => res.json())
-    .then(dreams => {
+    .then(AlgoLingo => {
       // clear existing list
-      dreamsList.innerHTML = "";
-      // iterate over dreams and append to list
-      dreams.forEach(dream => {
-        appendNewDream(dream.dream);
+      AlgoLingoList.innerHTML = "";
+      // iterate over AlgoLingo and append to list
+      AlgoLingo.forEach(AlgoLingo => {
+        appendNewAlgoLingo(AlgoLingo.AlgoLingo);
       });
     });
 };
 
-// function to append a dream to the list
-const appendNewDream = dream => {
-  const dreamsList = document.getElementById("dreams");
+// function to append a AlgoLingo to the list
+const appendNewAlgoLingo = AlgoLingo => {
+  const AlgoLingoList = document.getElementById("AlgoLingo");
   const newListItem = document.createElement("li");
-  newListItem.innerText = dream;
-  dreamsList.appendChild(newListItem);
+  newListItem.innerText = AlgoLingo;
+  AlgoLingoList.appendChild(newListItem);
 };
 
-// call the displayDreams function when the page loads
-window.onload = displayDreams;
+// call the displayAlgoLingo function when the page loads
+window.onload = displayAlgoLingo;
 
 // define variables that reference elements on our page
-const dreamsForm = document.forms[0];
-const dreamInput = dreamsForm.elements["dream"];
+const AlgoLingoForm = document.forms[0];
+const AlgoLingoInput = AlgoLingoForm.elements["AlgoLingo"];
 
-// listen for the form to be submitted and add a new dream when it is
-dreamsForm.onsubmit = event => {
+// listen for the form to be submitted and add a new AlgoLingo when it is
+AlgoLingoForm.onsubmit = event => {
   // stop our form submission from refreshing the page
   event.preventDefault();
 
-  const data = { dream: dreamInput.value };
+  const data = { AlgoLingo: AlgoLingoInput.value };
 
-  fetch("/addDream", {
+  fetch("/addAlgoLingo", {
     method: "POST",
     body: JSON.stringify(data),
     headers: { "Content-Type": "application/json" }
@@ -51,22 +51,22 @@ dreamsForm.onsubmit = event => {
     .then(response => {
       console.log(JSON.stringify(response));
     });
-  // get dream value and add it to the list
-  appendNewDream(dreamInput.value);
+  // get AlgoLingo value and add it to the list
+  appendNewAlgoLingo(AlgoLingoInput.value);
 
   // reset form
-  dreamInput.value = "";
-  dreamInput.focus();
+  AlgoLingoInput.value = "";
+  AlgoLingoInput.focus();
 };
 
-const clearButton = document.querySelector('#clear-dreams');
+const clearButton = document.querySelector('#clear-AlgoLingo');
 clearButton.addEventListener('click', event => {
-  fetch("/clearDreams", {})
+  fetch("/clearAlgoLingo", {})
     .then(res => res.json())
     .then(response => {
-      console.log("cleared dreams");
-      // clear the list of dreams on the page
-      const dreamsList = document.getElementById("dreams");
-      dreamsList.innerHTML = "";
+      console.log("cleared AlgoLingo");
+      // clear the list of AlgoLingo on the page
+      const AlgoLingoList = document.getElementById("AlgoLingo");
+      AlgoLingoList.innerHTML = "";
     });
 });

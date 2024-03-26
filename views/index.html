@@ -1,3 +1,5 @@
+<!-- index.html -->
+
 <!-- This is a static file -->
 <!-- served from your routes in server.js -->
 <!DOCTYPE html>
@@ -13,30 +15,46 @@
     <link id="favicon" rel="icon" href="">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-    
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
-    <script src="/scroll.js"></script>
+    <script src="/scroll.js" defer></script>
 
   </head>
   <body>
     <header>
       <h1>
-        AlgoLingo👅
+        AlgoLingo 👅
       </h1>
     </header>
 
     <main>
       <p class="bold">Algospeak entries:</p>
-      
 
-<section class="list">
+      <section class="list">
         <ul id="AlgoLingo"></ul>
-  </div>
-</section>
+      </section>
 
-      <button onclick="window.location.href='/entry.html'">New entry</button>
-   
+      <section class="entryForm">
+      <form>
+        <input
+          name="AlgoLingo"
+          aria-label="a new AlgoLingo"
+          type="text"
+          maxlength="100"
+          placeholder="your text here"
+          required
+        />
+        <button type="submit" id="submit-AlgoLingo">Submit AlgoLingo</button>
+      </form>
+    </section>
+
+<section>
+      <button onclick="window.location.href='/settings.html'">settings</button>
+    </section>
    
     </main>
 

@@ -11,14 +11,13 @@ app.use(bodyParser.json());
 const path = require("path");
 
 
-// Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
 
 // we've started you off with Express,
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
 // http://expressjs.com/en/starter/static-files.html
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // init sqlite db
 const dbFile = "./sqlite.db";
@@ -51,9 +50,16 @@ db.serialize(() => {
 });
 
 // http://expressjs.com/en/starter/basic-routing.html
+// Routes
 app.get("/", (request, response) => {
-  response.sendFile(`${__dirname}/views/index.html`);
+  response.sendFile(path.join(__dirname, 'views', 'index.html'));
 });
+
+app.get('/settings', function(req, res){
+  res.sendFile(path.join(__dirname, 'public', 'settings.html'));
+});
+
+
 
 // endpoint to get all the AlgoLingo in the database
 app.get("/getAlgoLingo", (request, response) => {

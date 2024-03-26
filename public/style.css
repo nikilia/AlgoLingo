@@ -5,6 +5,7 @@
 
 /* styles */
 /* called by your view template */
+ 
 
 * {
   box-sizing: border-box;
@@ -12,8 +13,8 @@
 
 body {
   font-family: "Curiosa Variable Test";
-  font-size: 20px;
-  margin: 3em;
+  font-size: 30px;
+  margin: 1em;
   background-color: #CBE4B6;
   text-align: center;
   height: 100vh; 
@@ -73,14 +74,22 @@ button:active {
   box-shadow: none;
 }
 
-li {
+ul {
+  height: 80%; 
+  max-height: 50vh;
+  overflow-y:hidden; 
+  border-radius: 10px;
+  --webkit-overflow-scrolling: touch;
+} 
+
+ li {
   list-style-type: none;
   max-width: 70%;
   margin: 10px;
   padding: 10px;
   border-radius: 15px;
   clear: both;
-}
+} 
 
 li:nth-child(2n) {
   background-color: #66b3ff; 
@@ -93,16 +102,6 @@ li:not(:nth-child(2n)) {
   float: left; 
 }
 
-.list {
-  height: 80%; 
-  max-height: 70vh;
-  overflow-y: auto; 
-  border-radius: 10px;
-  --webkit-overflow-scrolling: touch;
-}
-
 .list::webkit-scrollbar {
   display:none;
 }
-
-#

@@ -18,16 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
             lastIndex = 0,
             tl = gsap.timeline({
 
-              // scrollTrigger: {
-              //   trigger: "li",
-              //   //pin: true, // pin the trigger element while active
-              //   start: 0, // when the top of the trigger hits the top of the viewport
-              //   end: "max", // end after scrolling 500px beyond the start
-              //   scrub: true, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-
-              // },
-
-              
                 repeat: config.repeat,
                 onUpdate: onChange && function() {
                     let i = tl.closestIndex();

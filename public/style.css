@@ -112,6 +112,7 @@ ul {
   border-radius: 25px;
   clear: both;
   text-align: left;
+  word-break: break-word; 
 } 
 
 li:nth-child(2n) {

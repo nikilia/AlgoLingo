@@ -19,7 +19,7 @@ body {
   text-align: center;
   height: 100vh; 
   overflow-y: hidden; 
-
+}
 
 h1 {
   font-family: "Curiosa Test";
@@ -74,34 +74,40 @@ button:active {
   box-shadow: none;
 }
 
+
 ul {
   height: 80%; 
-  max-height: 50vh;
-  overflow-y:hidden; 
+  max-height: 60vh;
+  overflow-y: hidden; 
   border-radius: 10px;
   --webkit-overflow-scrolling: touch;
 } 
 
  li {
+  position: relative;
+  display: flex;
   list-style-type: none;
   max-width: 70%;
   margin: 10px;
-  padding: 10px;
+  padding: 15px;
   border-radius: 15px;
   clear: both;
+  text-align: left;
 } 
 
 li:nth-child(2n) {
+  padding-right: 20px;
   background-color: #66b3ff; 
   float: right; 
   color: white; 
 }
 
 li:not(:nth-child(2n)) {
+  padding-left: 20px;
   background-color: #f1f0f0; 
   float: left; 
 }
 
-.list::webkit-scrollbar {
+.list::-webkit-scrollbar {
   display:none;
 }

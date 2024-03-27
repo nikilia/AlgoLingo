@@ -1,3 +1,5 @@
+<!-- index.html -->
+
 <!-- This is a static file -->
 <!-- served from your routes in server.js -->
 <!DOCTYPE html>
@@ -6,41 +8,81 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="A cool thing made with Glitch">
+    <meta name="description" content="homepage">
 
     <title>test</title>
 
-    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <link id="favicon" rel="icon" href="">
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
+
+    <!-- load gsap -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     
+    <!-- RoughEase, ExpoScaleEase and SlowMo are all included in the EasePack file -->    
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/EasePack.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/CustomEase.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
+
+
     <!-- import the webpage's client-side javascript file -->
     <script src="/client.js" defer></script>
+    <script src="/scroll.js" defer></script>
+
   </head>
   <body>
     <header>
       <h1>
-        AlgoLingo
+        AlgoLingo 👅
       </h1>
     </header>
 
     <main>
-      <p class="bold">Algospeak entries:</p>
-      
-<section class="AlgoLingo">
-  <div class="chat">
-      <div class="mine messages">
-    <div class="message last">
-        <ul id="AlgoLingo"></ul>
-        </div>
+<div class="wrap">
+      <section class="list">
+        <ul id="#AlgoLingo">
+          <li>test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1</li>
+          <li>test 2</li>
+          <li>test 3</li>
+          <li>test 1</li>
+          <li>test 2</li>
+          <li>test 3</li>
+          <li>test 1</li>
+          <li>test 2</li>
+          <li>test 3</li>
+        </ul>
+      </section>
     </div>
-  </div>
-</section>
-      <button onclick="window.location.href='/entry.html'">New entry</button>
+      
+      <!-- <section class="list">
+        <ul class="messagelist" id="AlgoLingo"></ul>
+      </section> -->
+
+     
+
+      <section class="entryForm">
+      <form>
+        <input
+          name="AlgoLingo"
+          aria-label="a new AlgoLingo"
+          type="text"
+          maxlength="100"
+          placeholder="your text here"
+          required
+        />
+        <button type="submit" id="submit-AlgoLingo">Submit AlgoLingo</button>
+      </form>
+    </section>
+
+<section>
+      <button onclick="window.location.href='/settings.html'">settings</button>
+    </section>
+   
+   
+
+
     </main>
 
-    <footer>
-      RGBdog workshop
-    </footer>
   </body>
 </html>

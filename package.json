@@ -11,13 +11,14 @@
   },
   "dependencies": {
     "express": "^4.18.2",
+    "gsap": "^3.12.5",
     "sqlite3": "^5.1.2"
   },
   "engines": {
     "node": "12.x"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-sqlite"
+    "url": ""
   },
   "license": "MIT",
   "keywords": [

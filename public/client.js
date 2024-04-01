@@ -1,4 +1,4 @@
-// client.js
+// client-side js
 // run by the browser each time your view template referencing it is loaded
 
 console.log("hello world :o");
@@ -60,9 +60,11 @@ AlgoLingoForm.onsubmit = event => {
     .then(res => res.json())
     .then(response => {
       console.log(JSON.stringify(response));
+      displayAlgoLingo();
     });
   // get AlgoLingo value and add it to the list
   appendNewAlgoLingo(AlgoLingoInput.value);
+  
 
   // reset form
   AlgoLingoInput.value = "";

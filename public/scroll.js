@@ -1,10 +1,55 @@
 //scroll.js
 
+
+
+
 window.onload = function() { 
+
+    function createEmoji(event) {
+        const emojis = ['🦜', '🌻', '🛹', '💅', '🍉', '💪', '💬', '🍧', '🚽', '⏩', '🤫', '📋','💀','🙃','🎉']; 
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)]; 
+      
+        const emojiElement = document.createElement('div');
+        emojiElement.textContent = randomEmoji;
+        emojiElement.style.position = 'absolute';
+      
+        const sizeMultiplier = 1 + Math.random(); 
+        emojiElement.style.fontSize = `${sizeMultiplier * 25}px`;
+      
+        emojiElement.style.left = event.clientX + 'px'; // X coordinate of click/tap
+        emojiElement.style.top = event.clientY + 'px'; // Y coordinate of click/tap
+        document.body.appendChild(emojiElement);
+
+        gsap.to(emojiElement, {
+          x: Math.random() * 200 - 100,
+          y: Math.random() * 200 - 100,
+          opacity: 0,
+          duration: 2,
+          ease: 'power1.inOut',
+          onComplete: () => {
+            emojiElement.remove();
+          }
+        });
+      }
+      
+      // Event listener for touchscreen tap
+      document.addEventListener('touchstart', (event) => {
+        createEmoji(event.touches[0]); // Pass the first touch event
+      });
+      
+      // Event listener for mouse click
+      document.addEventListener('mousedown', (event) => {
+        createEmoji(event); // Pass the click event
+      });
+      
+    
+
+
 // Function to execute after getAlgoLingo is successfully fetched
 function executeAfterGetAlgoLingo(data) {
     // Do something with the fetched data
     console.log(data);
+    
     
     // Now you can execute the rest of your scroll.js code here
     // For example:
@@ -61,7 +106,7 @@ function executeAfterGetAlgoLingo(data) {
                     timeOffset = 0,
                     container = center === true ? items[0].parentNode : gsap.utils.toArray(center)[0] || items[0].parentNode,
                     totalHeight,
-                    getTotalHeight = () => items[length - 1].offsetTop + yPercents[length - 1] / 100 * heights[length - 1] - startY + spaceBefore[0] + items[length - 1].offsetHeight * gsap.getProperty(items[length - 1], "scaleY") + (parseFloat(config.paddingBottom) || 0),
+                    getTotalHeight = () => document.documentElement.clientHeight,
                     populateHeights = () => {
                         let b1 = container.getBoundingClientRect(),
                             b2;
@@ -287,6 +332,7 @@ fetch('/getAlgoLingo')
 .catch(error => {
   console.error('Error fetching AlgoLingo:', error);
 });
+
 
 
 }

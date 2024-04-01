@@ -86,30 +86,18 @@ app.post("/addAlgoLingo", (request, response) => {
   }
 });
 
-// endpoint to clear AlgoLingo from the database
 app.get("/clearAlgoLingo", (request, response) => {
-  // DISALLOW_WRITE is an ENV variable that gets reset for new projects so you can write to the database
-  if (!process.env.DISALLOW_WRITE) {
-    db.each(
-      "SELECT * from AlgoLingo",
-      (err, row) => {
-        console.log("row", row);
-        db.run(`DELETE FROM AlgoLingo WHERE ID=?`, row.id, (error) => {
-          if (row) {
-            console.log(`deleted row ${row.id}`);
-          }
-        });
-      },
-      (err) => {
-        if (err) {
-          response.send({ message: "error!" });
-        } else {
-          response.send({ message: "success" });
-        }
-      }
-    );
-  }
+  db.run("DELETE FROM AlgoLingo", (error) => {
+    if (error) {
+      console.error("Error clearing database:", error);
+      response.status(500).json({ message: "Error clearing database" });
+    } else {
+      console.log("Database cleared successfully");
+      response.sendStatus(200); // Send a simple success response
+    }
+  });
 });
+
 
 // helper function that prevents html/css/script malice
 const cleanseString = function (string) {

@@ -1,7 +1,9 @@
-// client-side js
+// client.js
 // run by the browser each time your view template referencing it is loaded
 
 console.log("hello world :o");
+
+
 
 // function to fetch and display AlgoLingo
 const displayAlgoLingo = () => {
@@ -17,7 +19,7 @@ const displayAlgoLingo = () => {
       AlgoLingo.forEach(AlgoLingo => {
         appendNewAlgoLingo(AlgoLingo.AlgoLingo);
       });
-    });
+    }); 
 };
 
 // function to append a AlgoLingo to the list
@@ -28,8 +30,16 @@ const appendNewAlgoLingo = AlgoLingo => {
   AlgoLingoList.appendChild(newListItem);
 };
 
-// call the displayAlgoLingo function when the page loads
-window.onload = displayAlgoLingo;
+
+
+//call the scroll function after page load
+document.addEventListener("DOMContentLoaded", () => { 
+  displayAlgoLingo();
+
+  console.log("algolingo displayed");
+
+  
+});
 
 // define variables that reference elements on our page
 const AlgoLingoForm = document.forms[0];

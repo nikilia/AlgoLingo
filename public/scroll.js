@@ -1,8 +1,5 @@
 //scroll.js
 
-
-
-
 window.onload = function() { 
 
     function createEmoji(event) {
@@ -24,7 +21,7 @@ window.onload = function() {
           x: Math.random() * 200 - 100,
           y: Math.random() * 200 - 100,
           opacity: 0,
-          duration: 2,
+          duration: 3,
           ease: 'power1.inOut',
           onComplete: () => {
             emojiElement.remove();

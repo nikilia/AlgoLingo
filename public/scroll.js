@@ -106,7 +106,7 @@ function executeAfterGetAlgoLingo(data) {
                     timeOffset = 0,
                     container = center === true ? items[0].parentNode : gsap.utils.toArray(center)[0] || items[0].parentNode,
                     totalHeight,
-                    getTotalHeight = () => document.documentElement.clientHeight,
+                    getTotalHeight = () => items[length - 1].offsetTop + yPercents[length - 1] / 100 * heights[length - 1] - startY + spaceBefore[0] + items[length - 1].offsetHeight * gsap.getProperty(items[length - 1], "scaleY") + (parseFloat(config.paddingBottom) || 0),
                     populateHeights = () => {
                         let b1 = container.getBoundingClientRect(),
                             b2;

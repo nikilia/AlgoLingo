@@ -70,10 +70,10 @@ form {
   left: 50%;
   transform: translateX(-50%);
   margin-bottom: 25px;
-  padding: 10px;
+  padding: 15px;
   width: 90%;
   max-width: 1040px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: rgb(255, 252, 252);
   border: 2px solid rgb(51, 51, 51);
   box-shadow: 5px 5px rgb(239, 203, 225);
@@ -88,7 +88,7 @@ input {
   padding: 10px;
   flex: 1;
   border: 1px solid lightgrey;
-  border-radius: 20px;
+  border-radius: 25px;
   font-size: 1em;
 }
 
@@ -114,8 +114,8 @@ main {
 }
 
 ul {
-  height: calc(100vh - 100px); /* Adjust the height to include the space above the form */
-  max-height: calc(100vh - 100px); /* Adjust the max-height accordingly */
+  height: calc(100vh - 100px); 
+  max-height: calc(100vh - 100px); 
   width: 90%;
   max-width: 940px;
   overflow-y: hidden; 
@@ -154,9 +154,9 @@ li:not(:nth-child(2n)) {
   border-bottom-left-radius: 15px;
 }
 
-.list {
+/* .list {
  height: 100%;
-}
+} */
 
 .list::-webkit-scrollbar {
   display:none;
@@ -169,7 +169,7 @@ button {
   border: 2px solid rgb(51, 51, 51);
   box-shadow: 3px 3px rgb(239, 203, 225);
   font-family: "Curiosa Variable Test";
-  border-radius: 20px;
+  border-radius: 25px;
   padding: 10px;
   margin-left: 10px;
 }

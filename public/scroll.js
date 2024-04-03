@@ -15,6 +15,10 @@ window.onload = function() {
       
         emojiElement.style.left = event.clientX + 'px'; // X coordinate of click/tap
         emojiElement.style.top = event.clientY + 'px'; // Y coordinate of click/tap
+
+        emojiElement.style.userSelect = 'none';
+        emojiElement.style.webkitTouchCallout = 'none';
+
         document.body.appendChild(emojiElement);
 
         gsap.to(emojiElement, {
@@ -29,30 +33,22 @@ window.onload = function() {
         });
       }
       
-      // Event listener for touchscreen tap
       document.addEventListener('touchstart', (event) => {
         createEmoji(event.touches[0]); // Pass the first touch event
       });
       
-      // Event listener for mouse click
+
       document.addEventListener('mousedown', (event) => {
-        createEmoji(event); // Pass the click event
+        createEmoji(event);
       });
       
     
-
-
 // Function to execute after getAlgoLingo is successfully fetched
 function executeAfterGetAlgoLingo(data) {
-    // Do something with the fetched data
+    
     console.log(data);
     
-    
-    // Now you can execute the rest of your scroll.js code here
-    // For example:
-    
-
-        gsap.registerPlugin(ScrollTrigger, Draggable, EasePack);
+    gsap.registerPlugin(ScrollTrigger, Draggable, EasePack);
           let resumeTimer;
         
         

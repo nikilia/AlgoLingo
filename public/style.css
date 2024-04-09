@@ -11,20 +11,49 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Curiosa Variable Test";
-  font-size: 30px;
-  margin: 1em;
-  background-color: #CBE4B6;
-  text-align: center;
-  height: 100vh; 
-  overflow-y: hidden; 
+
+/* Tablet and larger screens */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    margin: 0 auto;
+  }
 }
 
-h1 {
-  font-family: "Curiosa Test";
-  color: #686AB0;
+/* Desktop screens */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
 }
+
+body {
+  height: 100vh;
+  font-size: 1em;
+  font-family: "Curiosa Variable Test";
+  margin: 0px;
+  background: linear-gradient(176deg, rgba(203,228,182,1) 0%, rgba(206,233,255,1) 100%);
+  text-align: center;
+  overflow: hidden; 
+}
+
+h1  {
+  z-index: 1;
+  font-family: "Curiosa Test";
+  color: #42aaff;
+  border-radius: 15px;
+  background-color: rgb(255, 252, 252);
+  border: 2px solid rgb(51, 51, 51);
+  box-shadow: 3px 3px rgb(239, 203, 225);
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding:10px;
+  width: 90%;
+  max-width: 1040px;
+}
+
 
 .bold {
   font-weight: bold;
@@ -35,35 +64,40 @@ p {
 }
 
 form {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
   margin-bottom: 25px;
-  padding: 25px;
-  display: inline-block;
-  width: 100%;
-  max-width: 340px;
-  border-radius: 10px;
+  padding: 15px;
+  width: 90%;
+  max-width: 1040px;
+  border-radius: 25px;
   background-color: rgb(255, 252, 252);
   border: 2px solid rgb(51, 51, 51);
-  box-shadow: 3px 3px rgb(239, 203, 225);
+  box-shadow: 5px 5px rgb(239, 203, 225);
+  display: flex; 
+  align-items: center; 
+  /* justify-content: center; */
 }
+
 
 input {
   display: block;
-  margin-bottom: 10px;
   padding: 10px;
-  width: 100%;
+  flex: 1;
   border: 1px solid lightgrey;
-  border-radius: 3px;
-  font-size: 20px;
+  border-radius: 25px;
+  font-size: 1em;
 }
 
-button {
-  font-size: 20px;
-  border-radius: 10px;
-  background-color: rgb(255, 252, 252);
-  border: 2px solid rgb(51, 51, 51);
-  box-shadow: 3px 3px rgb(239, 203, 225);
-  font-family: "Curiosa Variable Test";
-  padding: 5px;
+
+.entryForm {
+  float: left;
+}
+
+#submit-AlgoLingo {
+  float: right;
 }
 
 button:hover {
@@ -76,38 +110,84 @@ button:active {
 
 
 ul {
-  height: 80%; 
-  max-height: 60vh;
+  max-height: calc(100vh); 
+  width: 90%;
+  max-width: 940px;
   overflow-y: hidden; 
   border-radius: 10px;
+  padding: 10px;
+  margin: auto;
+  margin-top: 90px;
   --webkit-overflow-scrolling: touch;
-} 
+}
+
 
  li {
   position: relative;
   display: flex;
   list-style-type: none;
   max-width: 70%;
+  padding: 15px 20px;
   margin: 10px;
-  padding: 15px;
-  border-radius: 15px;
+  border-radius: 25px;
   clear: both;
   text-align: left;
+  word-break: break-word; 
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  font-size: 1.5em;
 } 
 
 li:nth-child(2n) {
-  padding-right: 20px;
   background-color: #66b3ff; 
   float: right; 
   color: white; 
+  border-bottom-right-radius: 10px;
 }
 
 li:not(:nth-child(2n)) {
-  padding-left: 20px;
   background-color: #f1f0f0; 
   float: left; 
+  border-bottom-left-radius: 15px;
+}
+
+
+.list {
+ height: 100%;
 }
 
 .list::-webkit-scrollbar {
   display:none;
 }
+
+button {
+  font-size: 20px;
+  color:black;
+  background-color: rgb(255, 252, 252);
+  border: 2px solid rgb(51, 51, 51);
+  box-shadow: 3px 3px rgb(239, 203, 225);
+  font-family: "Curiosa Variable Test";
+  border-radius: 25px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.settings {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+.settings ul {
+  overflow: auto;
+  padding: 100px;
+}
+
+.settings li {
+  background-color: #f1f0f0; 
+  float: left; 
+  color: black;
+}
+

@@ -2,17 +2,40 @@
 
 <!-- This is a static file -->
 <!-- served from your routes in server.js -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="homepage">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  
 
-    <title>test</title>
+    <title>AlgoLingo</title>
 
-    <link id="favicon" rel="icon" href="">
+    <!-- icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/icons.ico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/icons.ico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/icons.ico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/icons.ico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/icons.ico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/icons.ico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/icons.ico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/icons.ico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons.ico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/icons.ico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/icons.ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/icons.ico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/icons.ico/favicon-16x16.png">
+    <link rel="manifest" href="/icons.ico/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/icons.ico/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="manifest" href="/manifest.json">
+
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
 
@@ -26,61 +49,46 @@
     <script src="https://unpkg.com/gsap@3/dist/Draggable.min.js"></script>
 
 
-    <!-- import the webpage's client-side javascript file -->
-    <script src="/client.js" defer></script>
-    <script src="/scroll.js" defer></script>
+    <!-- import tclient-side javascript file -->
+    <script src="/client.js?_cache=1" defer></script> 
+    <script src="/scroll.js?_cache=1" defer></script> 
+    
+    
 
   </head>
   <body>
     <header>
+      <section>
+        <!-- <button onclick="window.location.href='/settings.html'">settings</button> -->
+      </section>
       <h1>
         AlgoLingo 👅
       </h1>
     </header>
 
     <main>
-<div class="wrap">
+
       <section class="list">
-        <ul id="#AlgoLingo">
-          <li>test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1test 1</li>
-          <li>test 2</li>
-          <li>test 3</li>
-          <li>test 1</li>
-          <li>test 2</li>
-          <li>test 3</li>
-          <li>test 1</li>
-          <li>test 2</li>
-          <li>test 3</li>
+        <ul id="AlgoLingo">
         </ul>
       </section>
-    </div>
-      
-      <!-- <section class="list">
-        <ul class="messagelist" id="AlgoLingo"></ul>
-      </section> -->
 
      
 
       <section class="entryForm">
       <form>
-        <input
+        <input  
           name="AlgoLingo"
           aria-label="a new AlgoLingo"
           type="text"
-          maxlength="100"
-          placeholder="your text here"
+          maxlength="280"
+          placeholder="Jouw tekst hier"
           required
         />
-        <button type="submit" id="submit-AlgoLingo">Submit AlgoLingo</button>
+        <button type="submit" id="submit-AlgoLingo">Versturen</button>
       </form>
+        
     </section>
-
-<section>
-      <button onclick="window.location.href='/settings.html'">settings</button>
-    </section>
-   
-   
-
 
     </main>
 

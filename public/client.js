@@ -1,9 +1,5 @@
-// client-side js
-// run by the browser each time your view template referencing it is loaded
-
-console.log("hello world :o");
-
-
+// client.js
+console.log("🎈🍏🪼🦴");
 
 // function to fetch and display AlgoLingo
 const displayAlgoLingo = () => {
@@ -30,8 +26,6 @@ const appendNewAlgoLingo = AlgoLingo => {
   AlgoLingoList.appendChild(newListItem);
   
 };
-
-
 
 //call the scroll function after page load
 document.addEventListener("DOMContentLoaded", () => { 
@@ -82,4 +76,5 @@ clearButton.addEventListener('click', event => {
       const AlgoLingoList = document.getElementById("AlgoLingo");
       AlgoLingoList.innerHTML = "";
     });
+  
 });

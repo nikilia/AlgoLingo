@@ -80,7 +80,12 @@ button:hover {
 }
 
 /* List styles */
-ul {
+ ul {
+  position: absolute;
+  top: calc(90px);
+  bottom: calc(50px);
+  left: 50%;
+  transform: translateX(-50%);
   max-height: calc(100vh);
   width: 90%;
   max-width: 940px;
@@ -88,7 +93,6 @@ ul {
   border-radius: 10px;
   padding: 10px;
   margin: auto;
-  margin-top: 90px;
   --webkit-overflow-scrolling: touch;
 }
 
@@ -130,12 +134,40 @@ li:not(:nth-child(2n)) {
 }
 
 .settings ul {
-  overflow: auto;
-  padding: 100px;
+  overflow: auto; 
+  padding: 0; 
+  margin: 0;
+  bottom: 100px;
+  
 }
 
 .settings li {
-  background-color: #f1f0f0;
   float: left;
+  background-color: #f1f0f0;
   color: black;
+  padding: 15px 20px; /* Add padding to list items */
+  margin: 10px; /* Add margin to list items */
+  border-radius: 25px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+  font-size: 1.5em;
+  align-items: center;
+}
+
+.settings button{
+    white-space: nowrap;
+}
+
+.settings #options {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 25px;
+  padding: 15px;
+  width: 90%;
+  max-width: 1040px;
+}
+
+ button #AlgoLingoList {
+  color: red;
 }

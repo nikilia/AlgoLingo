@@ -2,7 +2,7 @@
 <!-- served from your routes in server.js -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,28 +11,33 @@
     <title>Settings</title>
 
     <link
-      id="favicon"
-      rel="icon"
-      href=""
-      type="image/x-icon"
+        id="favicon"
+        rel="icon"
+        href=""
+        type="image/x-icon"
     />
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css" />
 
-    <!-- import the webpage's client-side javascript file -->
-    <script src="/client.js" defer></script>
-  </head>
-  <body>
 
-    <header>
-      <h1>AlgoLingo settings🎉</h1>
-    </header>
- <main> 
-      <section class="settings">
-        <ul id="AlgoLingo"></ul>
-        <button onclick="window.location.href='./'">Back</button>
+    <!-- import client-side javascript file -->
+    <script src="/settings.js" defer></script>
+</head>
+<body>
+
+<header>
+    <h1>AlgoLingo settings🎉</h1>
+</header>
+<main>
+    <section class="settings">
+        <ul id="AlgoLingoList"></ul>
+      
+      <div id="options">
+               <button onclick="window.location.href='./'">Back</button>
         <button id="clear-AlgoLingo">Clear AlgoLingo</button>
-      </section>
-    </main>
-  </body>
+      </div>
+ 
+    </section>
+</main>
+</body>
 </html>

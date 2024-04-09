@@ -4,59 +4,55 @@ window.onload = function() {
   
  
 
-    function createEmoji(event) {
-        const emojis = ['🦜', '🌻', '🛹', '💅', '🍉', '💪', '💬', '🍧', '🚽', '⏩', '🤫', '📋','💀','🙃','🎉']; 
-        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)]; 
-      
-        const emojiElement = document.createElement('div');
-        emojiElement.textContent = randomEmoji;
-        emojiElement.style.position = 'absolute';
-      
-        const sizeMultiplier = 1.5 + Math.random(); 
-        emojiElement.style.fontSize = `${sizeMultiplier * 25}px`;
-      
-        emojiElement.style.left = event.clientX + 'px'; 
-        emojiElement.style.top = event.clientY + 'px'; 
+function createEmoji(event) {
+  const emojis = ['🦜', '🌻', '🛹', '💅', '🍉', '💪', '💬', '🍧', '🚽', '⏩', '🤫', '📋','💀','🙃','🎉']; 
+  const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)]; 
+  
+  const emojiElement = document.createElement('div');
+  emojiElement.textContent = randomEmoji;
+  emojiElement.style.position = 'absolute';
+  emojiElement.style.zIndex = '-1'; // Set z-index to position below other elements
+  
+  const sizeMultiplier = 1.5 + Math.random(); 
+  emojiElement.style.fontSize = `${sizeMultiplier * 25}px`;
+  
+  emojiElement.style.left = event.clientX + 'px'; 
+  emojiElement.style.top = event.clientY + 'px'; 
 
-        emojiElement.style.userSelect = 'none';
-        emojiElement.style.webkitTouchCallout = 'none';
+  emojiElement.style.userSelect = 'none';
+  emojiElement.style.webkitTouchCallout = 'none';
 
-        document.body.appendChild(emojiElement);
+  document.body.appendChild(emojiElement);
 
-        gsap.to(emojiElement, {
-          x: Math.random() * 200 - 100,
-          y: Math.random() * 200 - 100,
-          opacity: 0,
-          duration: 3,
-          ease: 'power1.inOut',
-          onComplete: () => {
-            emojiElement.remove();
-          }
-        });
-      }
-      
-      document.addEventListener('touchstart', (event) => {
-        createEmoji(event.touches[0]); // Pass the first touch event
-      });
-      
+  gsap.to(emojiElement, {
+    x: Math.random() * 200 - 100,
+    y: Math.random() * 200 - 100,
+    opacity: 0,
+    duration: 3,
+    ease: 'power1.inOut',
+    onComplete: () => {
+      emojiElement.remove();
+    }
+  });
+}
 
-      document.addEventListener('mousedown', (event) => {
-        createEmoji(event);
-      });
+document.addEventListener('touchstart', (event) => {
+  createEmoji(event.touches[0]); // Pass the first touch event
+});
+
+document.addEventListener('mousedown', (event) => {
+  createEmoji(event);
+});
+
       
   
   
   
 function scrollToLastEntry() {
-   // Scroll to the last entry
     const lastEntry = document.getElementById("AlgoLingo").lastElementChild;
     lastEntry.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' });
-    // Select the list element
-    const list = document.querySelector('ul');
-
-   
-   
 }
+
 
     
 // Function to execute after getAlgoLingo is successfully fetched

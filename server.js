@@ -28,7 +28,7 @@ const db = new sqlite3.Database(dbFile);
 // if ./.data/sqlite.db does not exist, create it, otherwise print records to console
 db.serialize(() => {
   if (!exists) {
-    db.run(
+    db.run(         
       "CREATE TABLE AlgoLingo (id INTEGER PRIMARY KEY AUTOINCREMENT, AlgoLingo TEXT)"
     );
     console.log("New table AlgoLingo created!");
@@ -93,6 +93,20 @@ app.get("/clearAlgoLingo", (request, response) => {
       response.status(500).json({ message: "Error clearing database" });
     } else {
       console.log("Database cleared successfully");
+      response.sendStatus(200); // Send a simple success response
+    }
+  });
+});
+
+// endpoint to delete a specific AlgoLingo entry by its ID
+app.delete("/deleteAlgoLingo/:id", (request, response) => {
+  const id = request.params.id;
+  db.run(`DELETE FROM AlgoLingo WHERE id = ?`, id, (error) => {
+    if (error) {
+      console.error("Error deleting AlgoLingo entry:", error);
+      response.status(500).json({ message: "Error deleting AlgoLingo entry" });
+    } else {
+      console.log("AlgoLingo entry deleted successfully");
       response.sendStatus(200); // Send a simple success response
     }
   });

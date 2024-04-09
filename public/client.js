@@ -27,18 +27,18 @@ const appendNewAlgoLingo = AlgoLingo => {
   
 };
 
-//call the scroll function after page load
+
+
+//call the scroll.js function after page load
 document.addEventListener("DOMContentLoaded", () => { 
-  
   displayAlgoLingo();
   console.log("algolingo displayed");
-
-  
 });
 
 // define variables that reference elements on our page
 const AlgoLingoForm = document.forms[0];
 const AlgoLingoInput = AlgoLingoForm.elements["AlgoLingo"];
+
 
 // listen for the form to be submitted and add a new AlgoLingo when it is
 AlgoLingoForm.onsubmit = event => {
@@ -55,16 +55,16 @@ AlgoLingoForm.onsubmit = event => {
     .then(res => res.json())
     .then(response => {
       console.log(JSON.stringify(response));
+      // Reload the list of AlgoLingo entries
       displayAlgoLingo();
+     window.location.reload();
     });
-  // get AlgoLingo value and add it to the list
-  appendNewAlgoLingo(AlgoLingoInput.value);
-  
 
-  // reset form
+  // Reset form
   AlgoLingoInput.value = "";
   AlgoLingoInput.focus();
 };
+
 
 const clearButton = document.querySelector('#clear-AlgoLingo');
 clearButton.addEventListener('click', event => {
@@ -76,5 +76,4 @@ clearButton.addEventListener('click', event => {
       const AlgoLingoList = document.getElementById("AlgoLingo");
       AlgoLingoList.innerHTML = "";
     });
-  
 });

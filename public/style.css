@@ -37,6 +37,7 @@ h1 {
 
 /* Form styles */
 form {
+  z-index:1;
   position: fixed;
   bottom: 0;
   left: 50%;
@@ -97,6 +98,7 @@ button:hover {
 }
 
 li {
+  text-transform: lowercase;
   position: relative;
   display: flex;
   list-style-type: none;

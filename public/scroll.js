@@ -2,6 +2,11 @@
 
 window.onload = function() { 
   
+  // Add event listener for window resize
+window.addEventListener('resize', () => {
+    location.reload();
+});
+
  
 
 function createEmoji(event) {
@@ -11,7 +16,7 @@ function createEmoji(event) {
   const emojiElement = document.createElement('div');
   emojiElement.textContent = randomEmoji;
   emojiElement.style.position = 'absolute';
-  emojiElement.style.zIndex = '-1'; // Set z-index to position below other elements
+  emojiElement.style.zIndex = '0'; 
   
   const sizeMultiplier = 1.5 + Math.random(); 
   emojiElement.style.fontSize = `${sizeMultiplier * 25}px`;

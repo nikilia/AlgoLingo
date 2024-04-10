@@ -77,3 +77,4 @@ clearButton.addEventListener('click', event => {
       AlgoLingoList.innerHTML = "";
     });
 });
+
